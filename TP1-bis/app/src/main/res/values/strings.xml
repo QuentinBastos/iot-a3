@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AppTP1</string>
+    <string name="ceci_est_un_boutton">Ceci est un boutton :)</string>
+    <string name="premiere">Première</string>
+    <string name="deuxieme">Deuxième</string>
+    <string name="troisieme">Troisième</string>
+    <string name="un_petit_pas_pour_l_homme_un_grand_pas_pour_ma_compr_hension_d_android">Un petit pas pour l\'homme, un grand pas pour ma compréhension d\'Android</string>
 </resources>
