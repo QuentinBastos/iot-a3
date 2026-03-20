@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Led battle</string>
+    <string name="en_attente_de_messages">En attente de messages...</string>
+    <string name="secouez_pour_jouer">Secouez pour jouer !</string>
+    <string name="reset_jeu">RESET JEU</string>
+    <string name="joueur_2">Joueur 2</string>
+    <string name="joueur_1">Joueur 1</string>
+    <string name="_10000">10000</string>
+    <string name="port">Port</string>
+    <string name="_192_168_253_217">192.168.253.217</string>
+    <string name="adresse_ip_ex_192_168_1_10">Adresse IP (ex: 192.168.1.10)</string>
+    <string name="statut_udp">Statut UDP</string>
+    <string name="jouer">Jouer</string>
 </resources>
