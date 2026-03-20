@@ -2,13 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Permissions pour les capteurs -->
-    <uses-permission android:name="android.permission.BODY_SENSORS" />
-
-    <!-- Permissions pour l'accès à Internet -->
-    <uses-permission android:name="android.permission.INTERNET" />
-
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -17,7 +10,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppTP1">
+        android:theme="@style/Theme.LedBattle">
         <activity
             android:name=".MainActivity"
             android:exported="true">

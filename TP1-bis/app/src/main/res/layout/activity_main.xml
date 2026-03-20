@@ -29,7 +29,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/textView2"
         app:layout_constraintTop_toBottomOf="@id/textViewTop"
-        app:layout_constraintBottom_toTopOf="@id/button"
+        app:layout_constraintBottom_toTopOf="@id/messageInput"
         app:layout_constraintHorizontal_chainStyle="packed"
         android:layout_margin="16dp" />
 
@@ -43,7 +43,7 @@
         app:layout_constraintStart_toEndOf="@id/textView1"
         app:layout_constraintEnd_toStartOf="@id/textView3"
         app:layout_constraintTop_toBottomOf="@id/textViewTop"
-        app:layout_constraintBottom_toTopOf="@id/button"
+        app:layout_constraintBottom_toTopOf="@id/messageInput"
         android:layout_margin="16dp" />
 
     <TextView
@@ -56,8 +56,20 @@
         app:layout_constraintStart_toEndOf="@id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textViewTop"
-        app:layout_constraintBottom_toTopOf="@id/button"
+        app:layout_constraintBottom_toTopOf="@id/messageInput"
         android:layout_margin="16dp" />
+
+    <EditText
+        android:id="@+id/messageInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:hint="Message"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView3"
+        app:layout_constraintBottom_toTopOf="@id/button" />
 
     <Button
         android:id="@+id/button"
