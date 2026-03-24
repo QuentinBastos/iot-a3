@@ -2,69 +2,37 @@
 
 MicroBit uBit;
 
-void onButtonA(MicroBitEvent e)
-{
-    uBit.display.print("A");
+// L'adresse I2C du BME280 sur 8 bits pour l'écriture
+const int BME280_ADDR = 0xEC;
+
+void testerBME280() {
+  // Le registre 0xD0 contient l'identifiant unique du BME280
+  char cmd[1];
+  cmd[0] = 0xD0;
+
+  // 1. On indique au capteur qu'on veut lire ce registre précis
+  uBit.i2c.write(BME280_ADDR, cmd, 1);
+
+  // 2. On lit la réponse du capteur (1 octet)
+  char reponse[1];
+  uBit.i2c.read(BME280_ADDR, reponse, 1);
+
+  // 3. Vérification : le BME280 doit renvoyer 0x60 (soit 96 en décimal)
+  if (reponse[0] == 0x60) {
+    uBit.display.scroll("BME280 OK!");
+  } else {
+    uBit.display.scroll("ERREUR I2C");
+  }
 }
 
-void onButtonB(MicroBitEvent e)
-{
-    uBit.display.print("B");
+int main() {
+  // Initialisation globale de la Micro:bit
+  uBit.init();
+
+  // Appel de notre fonction de test
+  testerBME280();
+
+  // Libération du thread principal pour laisser tourner les tâches de fond
+  release_fiber();
+  return 0;
 }
-
-void temperature(MicroBitEvent e)
-{
-    int temp = uBit.thermometer.getTemperature();
-    if (temp >= 27) {
-        uBit.display.scroll(temp);
-    }
-}
-
-int tiltLeftCount = 0;
-
-void onTiltLeft(MicroBitEvent e)
-{
-    tiltLeftCount++;
-    uBit.display.scroll(tiltLeftCount);
-}
-
-void onNorthFacing(MicroBitEvent e)
-{
-    int heading = uBit.compass.heading();
-    // Le Nord est entre 315° et 45°
-    if (heading < 45 || heading > 315) {
-        uBit.display.print("N");
-    } else {
-        uBit.display.clear(); 
-    }
-}
-
-int main()
-{
-    // Initialise the micro:bit runtime.
-    uBit.init();
-
-    // Enregistrement des événements lors du clic sur les boutons A et B
-    // uBit.messageBus.listen(MICROBIT_ID_BUTTON_A, MICROBIT_BUTTON_EVT_CLICK, onButtonA);
-    // uBit.messageBus.listen(MICROBIT_ID_BUTTON_B, MICROBIT_BUTTON_EVT_CLICK, onButtonB);
-
-
-    // Enregistrement d'un événement pour afficher la température toutes les 5 secondes
-    // uBit.messageBus.listen(MICROBIT_ID_THERMOMETER, MICROBIT_THERMOMETER_EVT_UPDATE, temperature);
-
-    // Enregistrement d'un événement pour compter le nombre de fois que le micro:bit est incliné vers la gauche
-    // uBit.messageBus.listen(MICROBIT_ID_GESTURE, MICROBIT_ACCELEROMETER_EVT_TILT_LEFT, onTiltLeft);
-
-    // Enregistrement d'un événement pour afficher le nord lorsque le micro:bit est vers le nord.
-    uBit.compass.calibrate();
-    uBit.messageBus.listen(MICROBIT_ID_COMPASS, MICROBIT_COMPASS_EVT_DATA_UPDATE, onNorthFacing);
-
-    // Message d'accueil sur l'écran LED
-    uBit.display.scroll("PRETS?");
-
-    // If main exits, there may still be other fibers running or registered event handlers etc.
-    // Simply release this fiber, which will mean we enter the scheduler. Worse case, we then
-    // sit in the idle task forever, in a power efficient sleep.
-    release_fiber();
-}
-
