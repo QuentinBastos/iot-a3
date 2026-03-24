@@ -4,3 +4,5 @@ yotta_modules
 .cache
 compile_commands.json
 .idea
+source/main.cpp
+source/anciens_tp/main.cpp
