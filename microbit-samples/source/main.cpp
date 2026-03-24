@@ -37,6 +37,22 @@ void onButtonB(MicroBitEvent e)
     uBit.display.print("B");
 }
 
+void temperature(MicroBitEvent e)
+{
+    int temp = uBit.thermometer.getTemperature();
+    if (temp >= 27) {
+        uBit.display.scroll(temp);
+    }
+}
+
+int tiltLeftCount = 0;
+
+void onTiltLeft(MicroBitEvent e)
+{
+    tiltLeftCount++;
+    uBit.display.scroll(tiltLeftCount);
+}
+
 int main()
 {
     // Initialise the micro:bit runtime.
@@ -46,6 +62,12 @@ int main()
     uBit.messageBus.listen(MICROBIT_ID_BUTTON_A, MICROBIT_BUTTON_EVT_CLICK, onButtonA);
     uBit.messageBus.listen(MICROBIT_ID_BUTTON_B, MICROBIT_BUTTON_EVT_CLICK, onButtonB);
 
+
+    // Enregistrement d'un événement pour afficher la température toutes les 5 secondes
+    uBit.messageBus.listen(MICROBIT_ID_THERMOMETER, MICROBIT_THERMOMETER_EVT_UPDATE, temperature);
+
+    // Enregistrement d'un événement pour compter le nombre de fois que le micro:bit est incliné vers la gauche
+    uBit.messageBus.listen(MICROBIT_ID_GESTURE, MICROBIT_ACCELEROMETER_EVT_TILT_LEFT, onTiltLeft);
     // Message d'accueil sur l'écran LED
     uBit.display.scroll("PRETS?");
 

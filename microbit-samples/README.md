@@ -43,6 +43,15 @@ Leds fonctionnel avec : cp build/bbc-microbit-classic-gcc/source/microbit-sample
 
 ### Exercice 4 : 
 
+Fait buttons fonctionnel et ajouté dans le main.cpp
+
+### Exercie 5 :
+
+Capteur de température fonctionnel et ajouté dans le main.cpp
+- Doc dispo dans https://lancaster-university.github.io/microbit-docs/ubit/thermometer/
+
+### Exercice 6 : 
+
 
 
 ## Docker
