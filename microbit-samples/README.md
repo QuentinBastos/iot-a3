@@ -39,7 +39,8 @@ Pour docker, il faut pull https://github.com/carlosperate/docker-microbit-toolch
 - docker run -it \
   -v "/Users/quentinbastos/Desktop/cours/iot/iot-a3/microbit-samples:/workspaces/microbit-samples" \
   schoumi/yotta:latest
-A collection of example programs using the micro:bit runtime.
+
+- A collection of example programs using the micro:bit runtime.
 
 The source/examples folder contains a selection of samples demonstrating the capabilities and usage of the runtime APIs.
 To select a sample, simply copy the .cpp files from the relevant folder into the source/ folder.
