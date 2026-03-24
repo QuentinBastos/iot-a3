@@ -1,6 +1,8 @@
 # microbit-samples
 ## Réponse : 
 
+### Exercice 1
+
 Dans le cas de ce TP, quatre choix étaient possibles.
 
 Utiliser des cartes C8051F02x de SiliconLabs.
@@ -13,6 +15,9 @@ Recherchez les caractéristiques des diverses cartes en question et les micro-co
 Réponse :
 
 Le choix de la Micro:bit (basée sur un Nordic nRF52833 / ARM Cortex-M4) est privilégié pour l'IoT car elle intègre nativement des capteurs (accéléromètre, magnétomètre), une matrice LED et une connectivité Bluetooth/Radio, contrairement aux cartes Arduino Uno (8-bit), C8051 (obsolète) ou STM32 (plus complexe), facilitant ainsi un prototypage rapide sans câblage externe.
+
+### Exercice 2
+
 Question 2 :
 
 Recherchez les différentes documentations techniques pour la carte Micro:bit et de ses composants. Est-ce que le site du distributeur (BBC) propose des documentations plus complètes que ceux des fabricants ?
@@ -33,12 +38,23 @@ Gestionnaire de build : yotta installé dans un environnement virtuel Python (ve
 Chaîne de compilation : arm-none-eabi-gcc, cmake, ninja et srecord.
 Configuration : Des correctifs sed sur les templates yotta pour assurer la compatibilité avec CMake 3.0+.
 
+### Exercice 3 :
+Leds fonctionnel avec : cp build/bbc-microbit-classic-gcc/source/microbit-samples-combined.hex /Volumes/MICROBIT/ sur MACOS.
+
+### Exercice 4 : 
+
+
+
 ## Docker
 Pour docker, il faut pull https://github.com/carlosperate/docker-microbit-toolchain en faisant :
 - docker pull schoumi/yotta:latest
 - docker run -it \
   -v "/Users/quentinbastos/Desktop/cours/iot/iot-a3/microbit-samples:/workspaces/microbit-samples" \
   schoumi/yotta:latest
+
+Pour flasher la carte, il faut faire : (remplacer le PATH par le $USER)
+
+- cp build/bbc-microbit-classic-gcc/source/microbit-samples-combined.hex /Volumes/MICROBIT/
 
 - A collection of example programs using the micro:bit runtime.
 

@@ -27,13 +27,27 @@ DEALINGS IN THE SOFTWARE.
 
 MicroBit uBit;
 
+void onButtonA(MicroBitEvent e)
+{
+    uBit.display.print("A");
+}
+
+void onButtonB(MicroBitEvent e)
+{
+    uBit.display.print("B");
+}
+
 int main()
 {
     // Initialise the micro:bit runtime.
     uBit.init();
 
-    // Insert your code here!
-    uBit.display.scroll("HELLO WORLD! :)");
+    // Enregistrement des événements lors du clic sur les boutons A et B
+    uBit.messageBus.listen(MICROBIT_ID_BUTTON_A, MICROBIT_BUTTON_EVT_CLICK, onButtonA);
+    uBit.messageBus.listen(MICROBIT_ID_BUTTON_B, MICROBIT_BUTTON_EVT_CLICK, onButtonB);
+
+    // Message d'accueil sur l'écran LED
+    uBit.display.scroll("PRETS?");
 
     // If main exits, there may still be other fibers running or registered event handlers etc.
     // Simply release this fiber, which will mean we enter the scheduler. Worse case, we then
