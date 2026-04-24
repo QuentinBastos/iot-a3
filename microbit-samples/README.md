@@ -1,5 +1,7 @@
 # microbit-samples
-## Réponse : 
+# Réponse : 
+
+## TP1 :
 
 ### Exercice 1
 
@@ -49,8 +51,29 @@ Fait buttons fonctionnel et ajouté dans le main.cpp
 
 Capteur de température fonctionnel et ajouté dans le main.cpp
 - Doc dispo dans https://lancaster-university.github.io/microbit-docs/ubit/thermometer/
+n
+## TP2 : 
 
-### Exercice 6 : 
+### Exercice 1
+
+**Question 1. Quelle est la fonction que vous utilisez pour l’envoie des données par radio fréquence ?**
+- `uBit.radio.datagram.send("Message");` après avoir activé la radio.
+
+**Question 2. Pouvez-vous choisir le destinataire ?**
+- Non, nRF51 transmet en "broadcast" (à tous). Mais on peut filtrer par groupe (canaux 0-255) avec `uBit.radio.setGroup()`. 
+
+**Question 3. Quelle fréquence est utilisé pour la configuration de la carte RF ?**
+- La radio matérielle utilise la bande de 2.4 GHz (par défaut canal 7, soit 2407 MHz).
+
+**Question 4. Quelle est la taille maximale de chaque message envoyé/reçu ?**
+- La taille maximum du payload (données utiles) est de 32 octets par paquet.
+
+
+## TP3 :
+
+### Exercice 1 :
+
+- Question 1 : 
 
 
 
